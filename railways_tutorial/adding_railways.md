@@ -1,7 +1,7 @@
 # Instructions for adding the railway data to our DuBois map.
 
 ## Using GIT
-1. Pull this branch the us_railways.geojson
+1. if you want this file and the railway.geoson on your computer, you can synch this branch and it will pull them down for you. You don't have to do this for the exercise, but FYI.
 
 ## Adding Shape Files to CartoDB from public data sets
 1. Switch to your dataset view
@@ -37,3 +37,10 @@ cb_2013_us_county_500k'
  - Now that you have the Georgia counties, its up to you to add them to your map and visualize only Dougherty County.
 
 ## Adding the Railroads
+1. In your data view add a new dataset
+2. In the bottom-right-ish corner of the add dataset window is a place to paste a URL
+  - Use this one: ** https://github.com/hurc305/mapping_dubois/blob/gh-pages/railways_tutorial/table_10m_railroads.geojson **
+  - NOTE: this is a geojson file being pulled from our github repo! You can actually preview it on github if you like.
+
+## SOME SQL TO BE EDITED:
+SELECT georgia.cartodb_id, ST_railroads.the_geom, railroads.the_geom_webmercator  FROM georgia, railroads WHERE ST_Intersects(georgia.the_geom, railroads.the_geom)
