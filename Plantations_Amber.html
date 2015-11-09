@@ -5,8 +5,8 @@
   <title>Mapping DuBois</title>
   <meta name="Plantations in Georgia" content=“Map to accompany WEB Dubois Of the Blackbelt”>
   <meta name="Amber" content="HURC305">
-
-  <link rel="stylesheet" href="css/main.css?v=1.0">
+ 
+<link rel="stylesheet" href="css/main.css?v=1.0">
 
   <!--[if lt IE 9]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css" />
   <script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.js"></script>
   <!--[if lte IE 8]>
-    <link rel="stylesheet" href="https://xd6.cartodb.com/api/v2/viz/749918f8-7e7b-11e5-83c6-0e5db1731f59/viz.json" />
+    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v2/themes/css/cartodb.ie.css" />
   <![endif]-->
 	  
   <style>
@@ -29,19 +29,29 @@
       // initiate leaflet map
       map = new L.Map('cartodb-map', { 
         center: [33.052,-83.72475],
-        zoom: 7
-	minzoom:5
-	maxBounds: [[51.659181, -70.474564],[21.836542,-116.567952]]
+        zoom: 7,
+		minzoom: 5,
+		maxBounds: [[44.779722, -100.927379], [23.316500, -71.364615]]
       })
 	  
   // Add a basemap to the map object just created
       L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
           attribution: 'Stamen'
           }).addTo(map);
+	// Add a basemap to the map object just created
+      L.tileLayer('http://maps.nypl.org/warper/maps/tile/7649/{z}/{x}/{y}.png', {
+          attribution: 'Stamen'
+          }).addTo(map);
 	  
-      var layerUrl = 'https://alextarr.cartodb.com/api/v2/viz/a9070d66-78e5-11e5-9c7f-0ecd1babdde5/viz.json';
+      var layerUrl = 'https://xd6.cartodb.com/api/v2/viz/749918f8-7e7b-11e5-83c6-0e5db1731f59/viz.json';
 	  
-
+cartodb.createLayer(map, layerUrl)
+      .addTo(map)
+      .on('done', function(layer) {
+      }).on('error', function() {
+        //log the error
+      });
+    }
    
   </script>
 
