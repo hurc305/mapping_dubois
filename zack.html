@@ -33,6 +33,7 @@
   <script src="http://cartodb.github.io/odyssey.js/dist/odyssey.js" charset="UTF-8"></script>
 
   <script>
+  /*
   //------- Added by avatarr8@github to allow for external MD files ----\\
  
   var mdfile = "test.md"; //set this to the file you you want to use for the template
@@ -49,6 +50,8 @@
           var el = document.getElementById('md_template');
           el.innerHTML = reader.responseText;	
 //------------------------------------------------------------------------\\
+  */
+  
 	var resizePID;
 
     function clearResize() {
@@ -272,8 +275,8 @@
         this.seq.current(n);
       }
 	});
-	} 
-};
+	//} 
+	//};
   </script>
 
   <script>
@@ -289,6 +292,43 @@
   <script type="text/javascript" src="http://fast.fonts.net/jsapi/3af16084-ba56-49ca-b37d-0b49b59e1927.js"></script>
 
 <script id="md_template" type="text/template">
+```
+-title: "Demo Project"
+-author: "Brian McGee"
+- vizjson: "https://zackli.cartodb.com/api/v2/viz/65e0a2e4-88a9-11e5-bfec-0e674067d321/viz.json"
+```
+
+#Gerogia natural layers
+```
+- center: [32.796792, -83.291386]
+- zoom: 5
+```
+
+#Land Use
+```
+- center: [32.796792, -83.291386]
+- zoom: 7
+```
+This is showing this map layer:
+#### 1
+
+#April Precipiation
+```
+- center: [32.796792, -83.291386]
+- zoom: 7
+```
+
+This is showing this map layer:
+#### 2
+
+#Soil Texture
+```
+- center: [32.796792, -83.291386]
+- zoom: 7
+```
+
+This is showing this map layer:
+#### 3
 
 </script>
 
