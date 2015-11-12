@@ -35,14 +35,15 @@
       })
 	  
   // Add a basemap to the map object just created
-      L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
+      /*
+	  L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
           attribution: 'Stamen'
           }).addTo(map);
+	*/
 	// Add a basemap to the map object just created
       L.tileLayer('http://maps.nypl.org/warper/maps/tile/7649/{z}/{x}/{y}.png', {
           attribution: 'Stamen'
           }).addTo(map);
-	  
       var layerUrl = 'https://xd6.cartodb.com/api/v2/viz/749918f8-7e7b-11e5-83c6-0e5db1731f59/viz.json';
 	  
 cartodb.createLayer(map, layerUrl)
