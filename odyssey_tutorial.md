@@ -3,7 +3,7 @@ __note__: this version of odyssey.js has been modified to fit the needs of the H
 Where possible, I have noted the modifications to make it obvious where the files depart from those provided by CartoDB.
 
 # Git the Files on Your Machine
- 1. in the HURC305 GitHub page, the mapping
+ 1. in the HURC305 GitHub page, the mapping template is broken
 
 ##links
 
