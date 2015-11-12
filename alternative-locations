@@ -4,7 +4,7 @@
 
   <title>Mapping DuBois</title>
   <meta name="description" content=“Map to accompany WEB Dubois Of the Blackbelt”>
-  <meta name="author" content="HURC305">
+  <meta name="Reilly Brooks" content="HURC305">
 
   <link rel="stylesheet" href="css/main.css?v=1.0">
 
@@ -29,7 +29,9 @@
       // initiate leaflet map
       map = new L.Map('cartodb-map', { 
         center: [31.5807,-84.1560],
-        zoom: 6
+        zoom: 7,
+		minZoom: 6,
+		maxBounds: [[30.126408, -79.095299],[35.290736, -88.016197]] 
       })
 	  
   // Add a basemap to the map object just created
@@ -38,6 +40,8 @@
           }).addTo(map);
 	  
       var layerUrl = 'https://alextarr.cartodb.com/api/v2/viz/a9070d66-78e5-11e5-9c7f-0ecd1babdde5/viz.json';
+	  var layerUrl = 
+	  'https://rrb5.cartodb.com/api/v2/viz/09479804-8646-11e5-9ff4-0e787de82d45/viz.json';
 	  
     
     cartodb.createLayer(map, layerUrl)
