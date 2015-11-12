@@ -33,6 +33,7 @@
   <script src="http://cartodb.github.io/odyssey.js/dist/odyssey.js" charset="UTF-8"></script>
 
   <script>
+  /*
   //------- Added by avatarr8@github to allow for external MD files ----\\
  
   var mdfile = "test.md"; //set this to the file you you want to use for the template
@@ -49,7 +50,8 @@
           var el = document.getElementById('md_template');
           el.innerHTML = reader.responseText;	
 //------------------------------------------------------------------------\\
-	var resizePID;
+	*/
+  var resizePID;
 
     function clearResize() {
       clearTimeout(resizePID);
@@ -272,8 +274,8 @@
         this.seq.current(n);
       }
 	});
-	} 
-};
+	//} 
+//};
   </script>
 
   <script>
@@ -289,6 +291,52 @@
   <script type="text/javascript" src="http://fast.fonts.net/jsapi/3af16084-ba56-49ca-b37d-0b49b59e1927.js"></script>
 
 <script id="md_template" type="text/template">
+
+```
+-title: "Demo Project"
+-author: "Brian McGee"
+- vizjson: "https://arazh1123.cartodb.com/api/v2/viz/e4bc86c2-7e78-11e5-8057-0ecfd53eb7d3/viz.json"
+```
+
+#Cindy Rules The World
+```
+- center: [37.7620, -122.4385]
+- zoom: 9
+```
+
+#Second Page
+```
+- center: [40.7348, -73.9970]
+- zoom: 9
+```
+This is showing this map layer:
+#### 1
+
+#Third Page
+```
+- center: [40.7365, -73.9982]
+- zoom: 13
+```
+
+This is showing this map layer:
+#### 2
+
+#Fourth Page
+```
+- center: [40.4469, -28.5645]
+- zoom: 3
+```
+
+This is showing this map layer:
+#### 3
+
+// added page
+
+#Rice University
+```
+- center: [29.7187297, -95.4022479]
+- zoom: 10
+```
 
 </script>
 
