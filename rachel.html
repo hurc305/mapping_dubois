@@ -33,8 +33,10 @@
   <script src="http://cartodb.github.io/odyssey.js/dist/odyssey.js" charset="UTF-8"></script>
 
   <script>
+/*
+  //comments go here
   //------- Added by avatarr8@github to allow for external MD files ----\\
- 
+
   var mdfile = "test.md"; //set this to the file you you want to use for the template
   
   var reader = new XMLHttpRequest() || new ActiveXObject('MSXML2.XMLHTTP');
@@ -49,6 +51,7 @@
           var el = document.getElementById('md_template');
           el.innerHTML = reader.responseText;	
 //------------------------------------------------------------------------\\
+*/
 	var resizePID;
 
     function clearResize() {
@@ -272,8 +275,8 @@
         this.seq.current(n);
       }
 	});
-	} 
-};
+	//} 
+//};
   </script>
 
   <script>
@@ -289,6 +292,43 @@
   <script type="text/javascript" src="http://fast.fonts.net/jsapi/3af16084-ba56-49ca-b37d-0b49b59e1927.js"></script>
 
 <script id="md_template" type="text/template">
+```
+-title: "Of The Black Belt"
+-author: "Rachel Galton"
+- vizjson: "https://racheljgalton.cartodb.com/api/v2/viz/ed07eb96-7e78-11e5-a03b-0e674067d321/viz.json"
+```
+
+#Of the Black Belt
+```
+- center: [31.5107, -84.1326]
+- zoom: 7
+```
+
+#The Land Is Run Down...
+```
+- center: [31.5107, -84.1326]
+- zoom: 12
+```
+since the boom days of eighten hundred and fifty...
+#### 1
+
+#I dig hard to pay rent...
+```
+- center: [31.4749, -84.1463]
+- zoom: 12
+```
+
+This is showing this map layer:
+#### 1
+
+#Societies meet there...
+```
+- center: [31.4363, -84.1216]
+- zoom: 12
+```
+
+This is showing this map layer:
+#### 3
 
 </script>
 
