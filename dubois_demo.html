@@ -13,6 +13,8 @@
   <![endif]-->
 
 <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css" />
+<link rel="stylesheet" href="css/custom_style.css" type="text/css" media="screen">
+
   <script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.js"></script>
   <!--[if lte IE 8]>
     <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v2/themes/css/cartodb.ie.css" />
@@ -25,7 +27,18 @@
 
   <script>
     var map;
-    function init(){
+    var temp_layer;
+	
+	function createSelector(l_id,lname,author,slayer){
+		$('#lselect ul').append('<li class="layer-toggle" id ='+l_id+'>'+lname+'<span style="font-size:80%; color:gray"> by: '+author+'</span></li>');
+		$('#'+l_id).click(function(){
+			slayer.toggle();
+		});
+	}
+	
+	
+	
+	function init(){
       // initiate leaflet map
       map = new L.Map('cartodb-map', { 
         center: [31.5807,-84.1560],
@@ -37,23 +50,69 @@
           attribution: 'Stamen'
           }).addTo(map);
 	  
-      var layerUrl = 'https://alextarr.cartodb.com/api/v2/viz/a9070d66-78e5-11e5-9c7f-0ecd1babdde5/viz.json';
-	  
-    
-    cartodb.createLayer(map, layerUrl)
-      .addTo(map)
-      .on('done', function(layer) {
-      }).on('error', function() {
-        //log the error
-      });
+      var layerUrls = ['https://arazh1123.cartodb.com/api/v2/viz/e4bc86c2-7e78-11e5-8057-0ecfd53eb7d3/viz.json',
+	  				 	'https://xd6.cartodb.com/api/v2/viz/749918f8-7e7b-11e5-83c6-0e5db1731f59/viz.json',
+						'https://xd6.cartodb.com/api/v2/viz/749918f8-7e7b-11e5-83c6-0e5db1731f59/viz.json',
+						'https://tjw8.cartodb.com/api/v2/viz/dfb862fe-7e78-11e5-aa35-0e5db1731f59/viz.json',
+						'https://rrb5.cartodb.com/api/v2/viz/09479804-8646-11e5-9ff4-0e787de82d45/viz.json',
+						'https://zackli.cartodb.com/api/v2/viz/65e0a2e4-88a9-11e5-bfec-0e674067d321/viz.json'
+  					  ];
+	   var layerCount = 0;	  
+	
+	for (layer in layerUrls){
+		    
+			cartodb.createLayer(map, layerUrls[layer])
+		      .addTo(map)
+		      .on('done', function(layer) {
+				  //layer.hide();
+				  temp_layer = layer;
+				  
+				  //add information to layer selector
+				  layerCount += 1
+				  for (var i = 0; i < layer.getSubLayerCount(); i++) {
+					  var sublayer = {
+						  				id:"",
+						  				name:"",
+						  author:"",
+						  				slayer:"",
+						  				parent:""
+						  				
+					  }
+					  sublayer.slayer = layer.getSubLayer(i);
+					  sublayer.id = layerCount+"_"+i;
+					  sublayer.name = layer.options.layer_definition.layers[i].options.layer_name;
+					  sublayer.author = "Bob";	//TODO: Make this author's name
+					  createSelector(sublayer.id,sublayer.name,sublayer.author,sublayer.slayer);
+					  sublayer.slayer.hide();
+								
+								/*
+								if (i === num) {
+				                  layer.getSubLayer(i).show();
+				                } else {
+				                  layer.getSubLayer(i).hide();
+				                }
+				  */
+							}
+		      }).on('error', function() {
+		        //log the error
+		      });
+		  }//end of adding layers loop
     }
   </script>
 
 </head>
 
 <body onload="init()">
-
+	
 <div id='cartodb-map'></div>
+
+<!-- layer selector div that is populated when layer loads-->
+<div id="lselect" class="layer_selector">
+            <ul class="LayerSelector-list">
+                <li data="0" class="clear">Clear</li>
+            </ul>
+        </div>
+
 
 </body>
 </html>

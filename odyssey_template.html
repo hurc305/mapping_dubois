@@ -183,7 +183,7 @@
 					  sublayers.push(i);
 					  layer.getSubLayer(i).hide();
 				  };
-				 
+				 //
  				 toggleLayer = function toggleLayer(tl) {
  				    return O.Action({
  				      enter: function() {
@@ -243,7 +243,7 @@
           document.getElementById('slides').innerHTML += tmpl;
 
           this.progress.step(i).then(this.seq.step(i), this.seq)
-		  var visible_layer = i;
+		  var visible_layer = i;//temporary, this should be set to layer from viz.json
           var actions = O.Parallel(
             this.slides.activate(i),
             slide(this),
