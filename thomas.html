@@ -34,7 +34,7 @@
 
   <script>
   //------- Added by avatarr8@github to allow for external MD files ----\\
- 
+ /*
   var mdfile = "test.md"; //set this to the file you you want to use for the template
   
   var reader = new XMLHttpRequest() || new ActiveXObject('MSXML2.XMLHTTP');
@@ -48,6 +48,7 @@
       if(reader.readyState==4) {
           var el = document.getElementById('md_template');
           el.innerHTML = reader.responseText;	
+		  */
 //------------------------------------------------------------------------\\
 	var resizePID;
 
@@ -272,8 +273,8 @@
         this.seq.current(n);
       }
 	});
-	} 
-};
+	//} 
+//};
   </script>
 
   <script>
@@ -289,6 +290,52 @@
   <script type="text/javascript" src="http://fast.fonts.net/jsapi/3af16084-ba56-49ca-b37d-0b49b59e1927.js"></script>
 
 <script id="md_template" type="text/template">
+```
+-title: "Demo Project"
+-author: "Brian McGee"
+- vizjson: "https://tjw8.cartodb.com/api/v2/viz/dfb862fe-7e78-11e5-aa35-0e5db1731f59/viz.json"
+```
+
+#Title Page
+```
+- center: [33.110240, -83.598609]
+- zoom: 7
+```
+
+#Second Page
+```
+- center: [33.110240, -83.598609]
+- zoom: 7
+```
+This is showing this map layer:
+#### 1
+
+#Third Page
+```
+- center: [33.110240, -83.598609]
+- zoom: 7
+```
+
+This is showing this map layer:
+#### 2
+
+#Fourth Page
+```
+- center: [33.110240, -83.598609]
+- zoom: 7
+```
+
+This is showing this map layer:
+#### 3
+
+#Fifth Page
+```
+- center: [33.110240, -83.598609]
+- zoom: 7
+```
+
+This is showing this map layer:
+#### 4
 
 </script>
 
